@@ -1,6 +1,6 @@
-# Results from the initial Python run
+# Simulation results
 
-All results on this page are **simulated**, not new hardware measurements. The main seed is 20260920. Full environment metadata is stored in `../results/run_metadata.json`; the pulse-shaping example uses seed 99.
+The experiments on this page use the Python communications model. The main seed is 20260920. Full environment metadata is stored in `../results/run_metadata.json`; the pulse-shaping example uses seed 99.
 
 ## Noise baseline
 
@@ -27,13 +27,13 @@ At Eb/N0 = 8 dB, each interference point uses 30,000 bits. The following example
 | chirp | 0.198733 | 0.0009 |
 | burst | 0.00623333 | 0.0056 |
 
-The in-band tone demonstrates rejection by despreading. The out-of-band tone demonstrates the benefit of the narrower unspread receiver. These are conditional examples, not a universal anti-jamming claim. See [interference.csv](../results/interference.csv) and the exact frequencies in [methodology](methodology.md).
+The in-band tone demonstrates rejection by despreading. The out-of-band tone demonstrates the benefit of the narrower unspread receiver. The comparison depends on interferer frequency and receiver bandwidth. See [interference.csv](../results/interference.csv) and the exact frequencies in [methodology](methodology.md).
 
 ![Interference comparison](../results/figures/interference.png)
 
 ## Acquisition
 
-Known 16-bit preamble, 127 chips/bit, 65 integer delay candidates, and three on-grid CFO candidates. These are probabilities over the stated simulation trials, not measured hardware acquisition times.
+Known 16-bit preamble, 127 chips/bit, 65 integer delay candidates, and three on-grid CFO candidates. The table reports joint delay/CFO estimation across 100 trials per noise level.
 
 | Eb/N0 (dB) | Correct joint delay/CFO estimates | Trials | Success rate |
 |---|---|---|---|
@@ -70,7 +70,7 @@ RRC shaping uses four samples/chip, a 10-chip filter span and a 2 Mchip/s chip r
 | `spectrum.csv` | Rectangular-pulse PSD-derived bandwidth |
 | `hardware_trace_excerpt.csv` | Short ideal digital trace; not a measured scope export |
 
-All paths above are under `results/`. Zero observed errors are reported with a finite confidence upper bound where BER metrics are used. Multipath taps and fading CSI are idealized; do not interpret those plots as a deployed receiver's performance.
+All paths above are under `results/`. Zero observed errors are reported with a finite confidence upper bound where BER metrics are used. Multipath combining uses known taps; fading experiments assume perfect receiver CSI.
 
 ## Validation status
 

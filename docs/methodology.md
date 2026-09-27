@@ -29,7 +29,7 @@ Complex AWGN has variance N0/2 in each quadrature, with `N0 = 10**(-EbN0_dB/10)`
 P_b = \tfrac12\operatorname{erfc}\!\left(\sqrt{E_b/N_0}\right).
 \]
 
-The unspread baseline uses an all-one pulse over the same L*S samples. Consequently bit rate, sampling rate, bit energy and noise normalization are matched. Spreading does not provide AWGN coding gain. The repetition-code experiment allocates energy 1/3 to each of three copies; it changes time/throughput and is an energy sanity check, not a claim of coding superiority.
+The unspread baseline uses an all-one pulse over the same L*S samples. Consequently bit rate, sampling rate, bit energy and noise normalization are matched. Spreading does not provide AWGN coding gain. The repetition-code experiment allocates energy 1/3 to each of three copies; it changes time/throughput and checks energy normalization across coding rates.
 
 ## Interference cases
 
@@ -42,7 +42,7 @@ J/S is the mean injected interference power divided by mean desired signal power
 | chirp | Linear sweep −0.01 to +0.01 across each record/batch | −20 kHz to +20 kHz |
 | burst | Complex white noise, 100 samples active per 1,000 | Wideband impulsive interference |
 
-Python's BER runner processes 2,000-bit batches and draws a new interference phase per batch. MATLAB uses a single record per point; chirp duration and random streams therefore differ. Neither result is an adversarial-jammer bound. A short deterministic PN code has spectral structure, so a single tone is not sufficient to estimate a general processing gain.
+Python's BER runner processes 2,000-bit batches and draws a new interference phase per batch. MATLAB uses a single record per point; chirp duration and random streams therefore differ. These experiments compare the specified interference waveforms. A short deterministic PN code has spectral structure, so a single tone is not sufficient to estimate a general processing gain.
 
 ## Synchronization
 

@@ -102,7 +102,7 @@ def run(output='results', quick=False):
         if name!='adc_bits':y=awgn(y,8,rng)
         d,s=despread(y,code,4);rows.append(dict(impairment=name,value=value,**error_metrics(b,d),evm_rms=evm_rms(s,b)))
     save_csv(out/'impairments.csv',rows)
-    # Multipath and known-channel matched combining: no channel estimation claim.
+    # Multipath and matched combining with known channel taps.
     b=payload(n=5000,seed=seed);x=spread(b,code);rows=[]
     for delay in [1,8,64]:
         h=channel_impulse([0,delay],[1,.8*np.exp(.7j)]);r=awgn(signal.fftconvolve(x,h),8,rng)

@@ -2,7 +2,7 @@
 
 The MIT terms below apply only to the newly authored software in `src/`, `matlab/`, `tests/`, `examples/`, and `tools/`.
 
-The historical report, photographs, Multisim/LTspice files, KiCad files, and material derived from the QEX circuit are excluded from that grant. Their original rights and attribution remain with their respective authors. The complete QEX magazine issue is not redistributed. Publishing this repository does not claim ownership of the source circuit.
+The report, photographs, circuit files and QEX magazine are outside this software licence. The QEX issue is third-party reference material published by ARRL; its copyright remains with its rights holders.
 
 ## MIT License — new software only
 

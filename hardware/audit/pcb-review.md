@@ -1,8 +1,8 @@
-# PCB audit and proposed redesign
+# PCB review and layout plan
 
-**Status: no fabrication release.** The supplied KiCad board is a placement study. A read-only structural audit found 169 footprints, 532 pads, 112 pads assigned a nonzero net, 26 declared nets, two zones, zero track segments, and zero vias. The supplied schematic contains 10 placed symbols and zero wires. These counts are reproduced by `python tools/audit_kicad.py` and recorded in `structural-audit.json`.
+The KiCad files contain a component placement study with routing pending. The structural audit records 169 footprints, 532 pads, 112 pads assigned a nonzero net, 26 declared nets, two zones, zero track segments, and zero vias. The supplied schematic contains 10 placed symbols and zero wires. These counts are reproduced by `python tools/audit_kicad.py` and recorded in `structural-audit.json`.
 
-KiCad is not installed in the current execution environment. No native ERC, DRC, 3D validation or manufacturing export has been run. A polished-looking rendering would not change that electrical status.
+ERC and DRC are pending completion of the connected schematic and board layout.
 
 ## Electrical issues to resolve before layout
 
@@ -19,20 +19,18 @@ KiCad is not installed in the current execution environment. No native ERC, DRC,
 | Output conditioning | Design/verify low-pass filtering and logic threshold recovery | Recovered waveform, duty distortion and BER under a defined test |
 | Testability | Add labelled probes for reference, carrier, TX PN, RX PN, spread data, lock and recovered data | Accessible ground-return pairs and test-point map |
 
-The 74HC688 is not automatically a guaranteed replacement for an LS-compatible comparator. Determine input margins using the exact ordered parts' data sheets; an HCT-family implementation may be appropriate, but no substitution is approved by this document. The original 74LS04 stages and external feedback network also need actual pulse/hysteresis verification rather than assuming every inverter is internally Schmitt-triggered.
+Check LS-to-HC input margins against the selected parts' data sheets; consider HCT where TTL-compatible thresholds are needed. Verify the 74LS04 feedback network's pulse widths and hysteresis across supply and component tolerances.
 
 ## Proposed physical organization
 
 Use one board with clearly separated reference/divider, transmitter, acquisition and demodulator regions. Put external connections at the edges and the analogue demodulator away from the clock doubler. Keep a continuous ground reference, short clock paths, local decoupling at every IC, mounting holes, legible pin-one marks and measurement points with adjacent grounds. Footprints must match the verified BOM, including the actual demodulator package.
 
-A two-layer board is a candidate, not an established requirement. Stack-up, trace widths, connector types, supply arrangement and mounting dimensions should follow the validated netlist and equipment interface. Do not autoroute the historical footprint placement: its schematic is incomplete and it contains unrelated/unconnected footprints.
+Select the layer count, trace widths, connectors, supplies and mounting dimensions after verifying the netlist and equipment interface. Rebuild placement from the completed schematic and remove unused footprints.
 
-## Release gates
+## Build sequence
 
 1. Complete and review the schematic and BOM, including power and unused pins.
 2. Run ERC with documented, justified exclusions; validate timing and analogue bias.
 3. Place and route the board from that schematic; run DRC with zero unexplained violations and zero unrouted nets.
 4. Inspect copper, return paths, clearances, drill sizes, silkscreen and 3D fit; independently compare netlist and board.
-5. Generate fabrication files only after those checks, then build and measure a prototype before calling it hardware-validated.
-
-This repository supplies the audit and test requirements. It does not supply a new connected PCB, Gerbers or a claimed manufacturing-ready design.
+5. Generate fabrication files only after those checks, then build and measure a prototype to validate the board.

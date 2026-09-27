@@ -9,19 +9,20 @@ I built and tested a direct-sequence spread-spectrum (DSSS) link as an individua
 
 ![DSSS hardware in the university laboratory](assets/lab-15.jpg)
 
-The hardware work covers PN generation, XOR spreading and square-carrier BPSK, code alignment, and analogue data recovery. The software extends the project to framed text, PCM samples, BER measurements, acquisition, pulse shaping and channel impairments. See the [hardware/software boundary](docs/implementation-matrix.md) before interpreting a result as a physical measurement.
+The hardware work covers PN generation, XOR spreading and square-carrier BPSK, code alignment, and analogue data recovery. The Python and MATLAB models cover framed text, PCM samples, BER, acquisition, pulse shaping and channel impairments.
 
 ## Start here
 
 | Goal | Open |
 |---|---|
 | Understand the signal chain and assumptions | [Methodology](docs/methodology.md) |
-| Inspect results and their limitations | [Results](docs/results.md) |
+| Explore BER, interference and acquisition results | [Simulation results](docs/results.md) |
 | Run the project on Windows | [Getting started](docs/getting-started.md) |
-| See my original hardware evidence | [Hardware evidence](hardware/README.md) |
+| Explore the circuit and laboratory measurements | [Hardware](hardware/README.md) |
 | Check the original report's corrections | [Technical errata](docs/errata.md) |
 | Understand the source design and my contribution | [Attribution](docs/attribution.md) |
-| Assess the unfinished PCB | [PCB audit and design plan](hardware/audit/pcb-review.md) |
+| Read the circuit's source article | [QEX, December 1986, pp. 5–9](docs/QEX_1986_12.pdf) |
+| Compare hardware and software features | [Implementation overview](docs/implementation-matrix.md) |
 
 ## Run Python
 
@@ -62,7 +63,7 @@ MATLAB shares deterministic test vectors with Python. Random-number streams diff
 | Measurements | BER with Wilson intervals, frame CRC failure rate, acquisition success, raw decision EVM, Welch PSD and 99% occupied bandwidth |
 | Coding | Soft repetition decoding with equal information-bit energy as a normalization check |
 
-## A result worth understanding
+## BER and interference
 
 ![DSSS and BPSK BER against theory](results/figures/awgn.png)
 
@@ -70,14 +71,12 @@ At equal information-bit energy, DSSS and ordinary coherent BPSK have the same t
 
 ![Interference comparison](results/figures/interference.png)
 
-The checked-in run uses 60,000 bits per AWGN point and 30,000 bits per interference point. It is a simulation, with ideal timing except in explicitly impaired experiments. Source CSVs and seeds are included; zero observed errors do not establish zero BER.
+The simulation uses 60,000 bits per AWGN point and 30,000 bits per interference point. Source CSVs include error counts and confidence intervals; seeds and model settings are documented in [methodology](docs/methodology.md).
 
-## Hardware status
+## Credits
 
-The original breadboard was tested using a shared reference and wired transmitter-to-receiver connection. The KiCad files are an **unrouted placement study**, preserved as historical work. They are not fabrication files. No new PCB or RF field trial is claimed.
+Hardware implementation and laboratory report: **Mohamed Abuain**, supervised by Prof. Tammam Benmusa.
 
-## Attribution and maintenance
+Circuit reference: André Kesteloot, N4ICK, “Experimenting With Direct-Sequence Spread Spectrum,” *QEX*, December 1986, pp. 5–9. [Read the issue](docs/QEX_1986_12.pdf) or see the [design notes](docs/attribution.md).
 
-Original circuit: André Kesteloot, N4ICK, “Experimenting With Direct-Sequence Spread Spectrum,” *QEX*, December 1986, pp. 5–9. Individual university implementation: **Mohamed Abuain**. The later software extension was developed with AI assistance and is separately documented.
-
-The full magazine issue is not redistributed. The original report and hardware files retain their own provenance; the repository's software licence does not apply to third-party material. See [attribution](docs/attribution.md), [licensing](LICENSE.md), [changelog](CHANGELOG.md) and [roadmap](docs/roadmap.md).
+[Software licence](LICENSE.md) · [Changelog](CHANGELOG.md) · [Roadmap](docs/roadmap.md)

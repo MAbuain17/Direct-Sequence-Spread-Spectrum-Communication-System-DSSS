@@ -11,5 +11,5 @@
   "erc_run": false,
   "drc_run": false,
   "fabrication_ready": false,
-  "reason": "No routed tracks and no schematic wires; user confirms conceptual placement study."
+  "reason": "Component placement study: routing and schematic connections are pending."
 }

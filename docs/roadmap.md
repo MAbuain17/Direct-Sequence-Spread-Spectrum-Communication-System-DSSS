@@ -1,6 +1,6 @@
 # Maintenance and research roadmap
 
-Version 0.1 establishes the models, evidence and validation gates. Changes should include a test of the claimed behaviour and regenerated results whenever measurement code changes. Python, GNU Octave and native MATLAB first passed their published GitHub Actions workflows on 21 September 2026. Native MATLAB reruns on relevant MATLAB/vector changes and remains manually dispatchable.
+Version 0.1 includes the communications models, laboratory files and automated tests. Python, GNU Octave and native MATLAB first passed their published GitHub Actions workflows on 21 September 2026. Native MATLAB reruns on relevant MATLAB/vector changes and remains manually dispatchable.
 
 | Priority | Work item | Definition of done |
 |---|---|---|
@@ -14,10 +14,10 @@ Version 0.1 establishes the models, evidence and validation gates. Changes shoul
 | P2 | Multiuser receiver | Asynchronous users, power control, matched-filter versus decorrelating/MMSE detection |
 | P3 | SDR bridge | File-based I/Q exchange and loopback; RF use only after front-end and local operating constraints are established |
 
-No project can cover every DSSS scenario in one meaningful test. Features enter the maintained suite when their assumptions, baseline and acceptance test are explicit. Proposed work is not described as an implemented feature.
+Each extension should specify its channel assumptions, comparison baseline and acceptance tests.
 
 ## Contribution workflow
 
-Use focused branches and descriptive commits. Keep original evidence unchanged. Add new measurements with instrument settings and raw samples where possible. Do not silently replace historical observations with simulated plots. When updating numerical code, run the unit suite and relevant experiments, review the changed CSVs/figures, and state which results are software-only.
+Use focused branches and descriptive commits. Record instrument settings and raw samples with new measurements. When changing numerical code, run the unit suite and relevant experiments, then review the generated CSVs and figures.
 
-Useful issue templates are recorded in `issue-backlog.json` for creation once the repository exists. Ongoing CI runs on code changes; no unattended external publishing or scheduled maintenance is assumed.
+Planned tasks are listed in [issue-backlog.json](issue-backlog.json). GitHub Actions runs the validation suite on code changes.

@@ -1,5 +1,11 @@
 # Changelog
 
+## Documentation update — 27 September 2026
+
+- Reworked the README and supporting pages around the circuit, laboratory captures and simulation results.
+- Added the December 1986 QEX issue and linked its source article.
+- Removed internal CV preparation and source-archive inventory pages.
+
 ## 0.1.1 — publication and CI maintenance
 
 - Published the complete project repository with source code, evidence, datasets and generated figures.
