@@ -57,6 +57,8 @@ RRC shaping uses four samples/chip, a 10-chip filter span and a 2 Mchip/s chip r
 
 ## Other outputs
 
+The [CDMA extension](cdma.md) adds a four-user near–far sweep, three receiver choices and a [source CSV](../results/cdma_near_far.csv) with 45 comparisons. Its [figure](../results/figures/cdma_near_far.png) shows how a one-chip phase shift changes Walsh-code separation and how multiuser detectors handle strong interferers.
+
 | CSV | Experiment |
 |---|---|
 | `payloads.csv` | Random, pattern, text and PCM bit recovery |

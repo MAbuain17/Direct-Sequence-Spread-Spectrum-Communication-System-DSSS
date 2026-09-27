@@ -10,7 +10,7 @@ Version 0.1 includes the communications models, laboratory files and automated t
 | P1 | Configurable payload and PN | User bits/text/patterns, LFSR taps/seed/phase and uploaded codes |
 | P1 | Modulation profiles | BPSK, QPSK, OOK and 2-FSK captures against known sample vectors |
 | P2 | Loopback receiver | Correlation, code-phase estimation, timing alignment, CRC and BER comparison |
-| P2 | Multiuser experiments | Gold-code profiles, controlled power mismatch and near-far measurements |
+| P2 | CDMA model extensions | Asynchronous symbol arrivals, multipath channel estimation and measured near–far captures |
 | P2 | RF expansion | SPI-controlled conversion/attenuation module after validating baseband interfaces |
 
 Each extension should specify its channel assumptions, comparison baseline and acceptance tests.

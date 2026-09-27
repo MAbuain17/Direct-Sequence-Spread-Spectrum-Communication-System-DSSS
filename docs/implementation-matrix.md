@@ -1,29 +1,15 @@
 # Implementation overview
 
-| Capability | Hardware implementation | Python | MATLAB / Octave |
-|---|---|---|---|
-| 4 MHz reference / 2 MHz carrier | Report and lab waveforms | Ideal 2 MHz square-carrier trace | Same ideal trace |
-| Seven-stage XNOR PN | Report sequence and scope observations | Exact recurrence; automated tests | Same recurrence; golden tests |
-| Continuous PN across data intervals | Circuit design | Hardware mode | Hardware mode |
-| XOR spreading and square-carrier modulation | Report and Multisim screenshots | Ideal logic model | Ideal logic model |
-| Comparator / clock-switch acquisition | Reported code alignment; no measured time | Not gate-level simulated | Not gate-level simulated |
-| LM/MC1496 analogue demodulator | Circuit and recovered-waveform evidence | Ideal despreading only | Ideal despreading only |
-| 2 kHz test / Morse input | Report | Logic patterns; no physical Morse key | Logic patterns |
-| Random data, framed text, CRC32 | Software study | Implemented | Implemented |
-| PCM audio samples | Software study | Implemented | Implemented |
-| BER versus Eb/N0 | Software study | Executed | Executed |
-| Tone, chirp and burst interference | Software study | Executed | Executed |
-| Joint preamble delay/CFO estimation | Software study | Executed | Executed |
-| Multipath / ideal known-channel combining | Software study | Executed | Executed |
-| Rayleigh fading / perfect CSI | Software study | Executed | Executed |
-| Quantization, timing, IQ, phase impairments | Software study | Executed | Executed |
-| RRC shaping and matched filtering | Software study | Executed | Executed |
-| Two-user near-far study | Software study | Executed | Executed |
-| Repetition-code energy check | Software study | Executed | Executed |
-| Routed PCB, ERC, DRC, board bring-up | Not completed | Not applicable | Not applicable |
+This repository follows one signal chain from a laboratory spread-spectrum transceiver through a configurable board design to reproducible receiver experiments.
 
-The MATLAB implementation is tested in GNU Octave and native MathWorks MATLAB. Hardware captures are linked from the [hardware page](../hardware/README.md); numerical experiments are described in [simulation results](results.md).
+| Layer | Engineering work | Explore |
+|---|---|---|
+| Laboratory transceiver | 2 MHz carrier and chip clock, seven-stage PN generation, logic spreading, analogue demodulation, clock alignment and recovered data captures | [Build photographs and waveforms](../hardware/README.md) |
+| Configurable Rev A | Four-layer routed PCB with an STM32G474, USB control, dual I/Q DAC outputs, protected I/Q inputs, SWD, expansion and front-panel controls | [Schematic, board renders, BOM and interface](../hardware/configurable/README.md) |
+| DSSS modelling | Exact PN recurrence, energy-normalized BPSK, packet framing, acquisition, pulse shaping, interference, fading and front-end impairments | [Methods](methodology.md) · [Results](results.md) |
+| CDMA extension | Code families, four-user composite waveform, chip-phase and near–far sweeps, matched/decorrelating/MMSE receivers and desired-user BER | [Architecture and results](cdma.md) |
+| Interactive study | Browser-based exploration of code correlation, near–far loading and multiuser receiver decisions | [CDMA explorer](../visualizer/index.html) |
 
-## Configurable Rev A board
+The MATLAB and Python implementations share deterministic test vectors. Their random streams are independent; numerical sweeps are compared by conditions and statistics rather than sample identity. The [validation workflow](../.github/workflows/validate.yml) runs the Python suite and Octave experiments; the separate [MATLAB workflow](../.github/workflows/matlab.yml) validates the native MATLAB path.
 
-The [Rev A hardware](../hardware/configurable/README.md) adds an STM32G474, USB control, buffered DAC I/Q outputs, protected ADC inputs, debugging and expansion connectors. Its [control specification](../hardware/configurable/control-interface.md) defines programmable payloads, PN taps/seed/phase and BPSK/QPSK/OOK/2-FSK modes. The schematic and routed PCB are included; these controls belong to the planned firmware implementation.
+The original bench circuit, Rev A PCB and simulation models are different engineering stages. The [hardware page](../hardware/README.md) contains the bench record, while the [Rev A page](../hardware/configurable/README.md) contains its circuit and layout package.

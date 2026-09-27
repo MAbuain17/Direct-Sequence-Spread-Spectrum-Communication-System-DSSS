@@ -1,9 +1,9 @@
 # DSSS Lab
 
-**Configurable spread-spectrum hardware with Python and MATLAB communications experiments.**
+**Configurable spread-spectrum hardware, receiver experiments and a multiuser CDMA study.**
 
-[![Validate DSSS models](https://github.com/MAbuain17/dsss-lab/actions/workflows/validate.yml/badge.svg)](https://github.com/MAbuain17/dsss-lab/actions/workflows/validate.yml)
-[![Native MATLAB validation](https://github.com/MAbuain17/dsss-lab/actions/workflows/matlab.yml/badge.svg)](https://github.com/MAbuain17/dsss-lab/actions/workflows/matlab.yml)
+[![Validate DSSS models](https://github.com/MAbuain17/Direct-Sequence-Spread-Spectrum-Communication-System-DSSS/actions/workflows/validate.yml/badge.svg)](https://github.com/MAbuain17/Direct-Sequence-Spread-Spectrum-Communication-System-DSSS/actions/workflows/validate.yml)
+[![Native MATLAB validation](https://github.com/MAbuain17/Direct-Sequence-Spread-Spectrum-Communication-System-DSSS/actions/workflows/matlab.yml/badge.svg)](https://github.com/MAbuain17/Direct-Sequence-Spread-Spectrum-Communication-System-DSSS/actions/workflows/matlab.yml)
 
 The project combines a 2 MHz bench implementation with a configurable USB-controlled I/Q board design. Rev A uses an STM32G474, dual DAC outputs, receive inputs and a digital expansion interface to make payload, spreading code and modulation programmable.
 
@@ -31,6 +31,8 @@ Rev A is the schematic and PCB design stage; firmware and board bring-up are nex
 | Signal modes and USB commands | [Control interface](hardware/configurable/control-interface.md) |
 | Original bench build and captures | [Laboratory implementation](hardware/README.md) |
 | BER, interference and synchronization | [Simulation results](docs/results.md) |
+| Multiuser access, near–far and receiver algorithms | [CDMA extension](docs/cdma.md) |
+| Interactive code and receiver study | [CDMA signal explorer](visualizer/index.html) |
 | Signal-chain conventions and parameters | [Methodology](docs/methodology.md) |
 | Python, MATLAB and Octave setup | [Getting started](docs/getting-started.md) |
 
@@ -44,6 +46,7 @@ python -m unittest discover -s tests -v
 python examples/burst_link.py
 python -m dsss_lab.experiments
 python examples/pulse_shaping.py
+python examples/cdma_study.py
 ```
 
 For a smaller run, add `--quick` to the experiment command. CSV files, figures and environment metadata are written to `results/`. Running without installing is also possible with `PYTHONPATH=src` on Linux/macOS; see the Windows guide for PowerShell.
@@ -82,6 +85,12 @@ At equal information-bit energy, DSSS and ordinary coherent BPSK have the same t
 ![Interference comparison](results/figures/interference.png)
 
 The simulation uses 60,000 bits per AWGN point and 30,000 bits per interference point. Source CSVs include error counts and confidence intervals; seeds and model settings are documented in [methodology](docs/methodology.md).
+
+## From DSSS to CDMA
+
+The [CDMA extension](docs/cdma.md) combines four spread-spectrum users in one channel and compares a matched filter, decorrelator and linear MMSE receiver under code-phase and near–far changes. The sweep records 45 conditions with 12,000 desired-user bits each. A separate [browser explorer](visualizer/index.html) exposes the code correlations, chip waveforms and receiver decisions interactively.
+
+![Four-user CDMA receiver comparison](results/figures/cdma_near_far.png)
 
 
 ## Credits

@@ -13,7 +13,7 @@ The hardware files include Multisim projects, an LTspice demodulator schematic a
 ## References
 
 - [QEX source metadata](qex-source.json)
-- [Technical corrections to the report](errata.md)
+- [Engineering notes on the report](errata.md)
 - [TI SN74LS164](https://www.ti.com/product/SN74LS164): shift-register specifications
 - [TI SN74HC688](https://www.ti.com/product/SN74HC688): comparator specifications
 

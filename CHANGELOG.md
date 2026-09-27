@@ -1,5 +1,12 @@
 # Changelog
 
+## CDMA receiver study — 28 September 2026
+
+- Added a four-user direct-sequence CDMA model with Walsh and PN-shift signatures, chip-phase offsets and controlled near–far power.
+- Added matched-filter, decorrelating and linear MMSE detection with deterministic receiver tests.
+- Published the 45-condition BER sweep, comparison figure and browser-based signal explorer.
+- Recast the implementation and historical-report notes around architecture and measurement conventions.
+
 ## Rev A hardware design — 27 September 2026
 
 - Added a connected STM32G474 schematic and four-layer PCB for configurable I/Q experiments.
