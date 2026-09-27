@@ -5,7 +5,7 @@
 [![Validate DSSS models](https://github.com/MAbuain17/Direct-Sequence-Spread-Spectrum-Communication-System-DSSS/actions/workflows/validate.yml/badge.svg)](https://github.com/MAbuain17/Direct-Sequence-Spread-Spectrum-Communication-System-DSSS/actions/workflows/validate.yml)
 [![Native MATLAB validation](https://github.com/MAbuain17/Direct-Sequence-Spread-Spectrum-Communication-System-DSSS/actions/workflows/matlab.yml/badge.svg)](https://github.com/MAbuain17/Direct-Sequence-Spread-Spectrum-Communication-System-DSSS/actions/workflows/matlab.yml)
 
-The project combines a 2 MHz bench implementation with a configurable USB-controlled I/Q board design. Rev A uses an STM32G474, dual DAC outputs, receive inputs and a digital expansion interface to make payload, spreading code and modulation programmable.
+The project combines a 2 MHz bench implementation with a configurable I/Q board design. Rev A integrates an STM32G474, dual DAC outputs, receive inputs and digital expansion around a programmable signal chain.
 
 ![Configurable DSSS transceiver PCB](hardware/configurable/renders/board-3d.png)
 
@@ -21,7 +21,7 @@ The project combines a 2 MHz bench implementation with a configurable USB-contro
 | Development | SWD/SWO programming, SPI/UART expansion, chip/data/PN/frame signals |
 | PCB | 110 × 80 mm, four copper layers, routed nets, ground planes and M3 mounting holes |
 
-Rev A is the schematic and PCB design stage; firmware and board bring-up are next. [Explore the hardware design](hardware/configurable/README.md), [open the schematic](hardware/configurable/renders/schematic.svg), or inspect the [PCB files](hardware/configurable/dsss-configurable.kicad_pcb).
+The [hardware package](hardware/configurable/README.md) includes the schematic, routed PCB, board renders, component list and control interface.
 
 ## Explore the project
 
@@ -90,6 +90,8 @@ The simulation uses 60,000 bits per AWGN point and 30,000 bits per interference 
 
 The [CDMA extension](docs/cdma.md) combines four spread-spectrum users in one channel and compares a matched filter, decorrelator and linear MMSE receiver under code-phase and near–far changes. The sweep records 45 conditions with 12,000 desired-user bits each. A separate [browser explorer](visualizer/index.html) exposes the code correlations, chip waveforms and receiver decisions interactively.
 
+To use the explorer, download or clone the repository and open `visualizer/index.html` in a browser.
+
 ![Four-user CDMA receiver comparison](results/figures/cdma_near_far.png)
 
 
@@ -98,3 +100,4 @@ The [CDMA extension](docs/cdma.md) combines four spread-spectrum users in one ch
 Project by **Mohamed Abuain**. The university bench implementation was supervised by Prof. Tammam Benmusa. Its circuit reference and source article are recorded in the [design references](docs/attribution.md).
 
 [Software licence](LICENSE.md) · [Changelog](CHANGELOG.md) · [Roadmap](docs/roadmap.md)
+
