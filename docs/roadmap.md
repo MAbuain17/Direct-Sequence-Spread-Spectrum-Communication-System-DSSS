@@ -2,17 +2,16 @@
 
 Version 0.1 includes the communications models, laboratory files and automated tests. Python, GNU Octave and native MATLAB first passed their published GitHub Actions workflows on 21 September 2026. Native MATLAB reruns on relevant MATLAB/vector changes and remains manually dispatchable.
 
-| Priority | Work item | Definition of done |
+| Priority | Work item | Milestone |
 |---|---|---|
-| P0 | Rerun original Multisim model | Export current netlist, operating points and labelled waveforms; reconcile report and as-built component list |
-| P1 | Hardware-equivalent acquisition model | Explicit doubled-clock phase search, latch behaviour, initial phases and timing assumptions; compare with lab capture |
-| P1 | Complete PCB schematic | Verified pin map, logic margins, bias and power circuits; clean ERC |
-| P1 | New routed PCB | Reviewed layout, zero unrouted connections, clean DRC, fabrication review; physical validation remains a later gate |
-| P2 | Off-grid acquisition / tracking | CFO estimator refinement, false-alarm-controlled detection, fractional timing and sample-clock recovery |
-| P2 | Realistic fading | Correlated Rayleigh/Rician channel with stated Doppler, channel estimation and imperfect-CSI receiver |
-| P2 | Stronger FEC | Convolutional/LDPC or another justified code with equal energy, rate and bandwidth comparisons |
-| P2 | Multiuser receiver | Asynchronous users, power control, matched-filter versus decorrelating/MMSE detection |
-| P3 | SDR bridge | File-based I/Q exchange and loopback; RF use only after front-end and local operating constraints are established |
+| P0 | Rev A firmware | USB command parser, configuration validation, shared PN/mapping vectors, timer/DMA DAC streaming |
+| P0 | Rev A electrical review | Clock, USB, regulator thermals, analogue range and sampling requirements checked against selected parts |
+| P1 | Board bring-up | Power rails, SWD, USB enumeration, DAC test tones and ADC captures |
+| P1 | Configurable payload and PN | User bits/text/patterns, LFSR taps/seed/phase and uploaded codes |
+| P1 | Modulation profiles | BPSK, QPSK, OOK and 2-FSK captures against known sample vectors |
+| P2 | Loopback receiver | Correlation, code-phase estimation, timing alignment, CRC and BER comparison |
+| P2 | Multiuser experiments | Gold-code profiles, controlled power mismatch and near-far measurements |
+| P2 | RF expansion | SPI-controlled conversion/attenuation module after validating baseband interfaces |
 
 Each extension should specify its channel assumptions, comparison baseline and acceptance tests.
 

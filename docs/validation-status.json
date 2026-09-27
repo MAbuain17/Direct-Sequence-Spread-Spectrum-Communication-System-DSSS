@@ -14,5 +14,21 @@
   "octave_executed": true,
   "multisim_rerun": false,
   "kicad_erc_drc_run": false,
-  "fabrication_ready": false
+  "fabrication_ready": false,
+  "rev_a_design": {
+    "revision": "A",
+    "kicad_version": "10.0.6",
+    "checked_at": "2026-09-27",
+    "schematic_violations": 0,
+    "pcb_violations": 0,
+    "unconnected_items": 0,
+    "board_mm": [
+      110,
+      80
+    ],
+    "copper_layers": 4,
+    "circuit_components": 70,
+    "signal_and_supply_nets": 48,
+    "routing_connections": 118
+  }
 }

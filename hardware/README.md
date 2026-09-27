@@ -1,6 +1,6 @@
-# Hardware implementation
+# Laboratory implementation
 
-An individual university project by Mohamed Abuain, based on André Kesteloot's [QEX circuit](../docs/QEX_1986_12.pdf), December 1986, pp. 5–9.
+The original 2 MHz university bench project by Mohamed Abuain. The new [configurable Rev A board](configurable/README.md) adds a programmable signal chain and I/Q interfaces.
 
 ![Breadboard assembly](../assets/lab-20.jpg)
 

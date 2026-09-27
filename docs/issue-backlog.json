@@ -1,14 +1,14 @@
 [
   {
-    "title": "Export and reconcile the original Multisim netlist",
-    "body": "Open DSSS_MAbuain.ms14 in Multisim 14, export the netlist and BOM, capture labelled waveforms, and reconcile comparator and logic-family differences with QEX and the report."
+    "title": "Implement Rev A USB configuration and timer/DMA streaming",
+    "body": "Follow hardware/configurable/control-interface.md. Add shared vectors for PN direction, seed, QPSK pairing, DAC bias and frame CRC."
   },
   {
-    "title": "Complete electrical schematic before PCB layout",
-    "body": "Use hardware/audit/pcb-review.md. Resolve logic thresholds, clock-switch timing, reset, demodulator bias, unused pins and test points. Require ERC before routing."
+    "title": "Review Rev A board and bring up power, SWD and USB",
+    "body": "Use hardware/configurable/design-review.md, pin-map.md and bom.csv. Record schematic/PCB review, power measurements and USB enumeration."
   },
   {
-    "title": "Add off-grid CFO acquisition and timing tracking",
-    "body": "Extend the grid acquisition with a justified estimator and loop. Test acquisition detection/false alarm and residual offset across an explicit operating range."
+    "title": "Add programmable payload, PN and modulation modes",
+    "body": "Implement user payloads, LFSR tap/seed/phase control, uploaded codes and BPSK/QPSK/OOK/2-FSK profiles."
   }
 ]

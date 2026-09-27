@@ -1,28 +1,38 @@
 # DSSS Lab
 
-**A 2 MHz hardware demonstration, extended into a reproducible Python and MATLAB communications laboratory.**
+**Configurable spread-spectrum hardware with Python and MATLAB communications experiments.**
 
 [![Validate DSSS models](https://github.com/MAbuain17/dsss-lab/actions/workflows/validate.yml/badge.svg)](https://github.com/MAbuain17/dsss-lab/actions/workflows/validate.yml)
 [![Native MATLAB validation](https://github.com/MAbuain17/dsss-lab/actions/workflows/matlab.yml/badge.svg)](https://github.com/MAbuain17/dsss-lab/actions/workflows/matlab.yml)
 
-I built and tested a direct-sequence spread-spectrum (DSSS) link as an individual university project, following André Kesteloot's design in *QEX*, December 1986. This repository brings together my Multisim files, laboratory photographs, original report, and a new software study of the link's behaviour under noise, interference and receiver impairments.
+The project combines a 2 MHz bench implementation with a configurable USB-controlled I/Q board design. Rev A uses an STM32G474, dual DAC outputs, receive inputs and a digital expansion interface to make payload, spreading code and modulation programmable.
 
-![DSSS hardware in the university laboratory](assets/lab-15.jpg)
+![Configurable DSSS transceiver PCB](hardware/configurable/renders/board-3d.png)
 
-The hardware work covers PN generation, XOR spreading and square-carrier BPSK, code alignment, and analogue data recovery. The Python and MATLAB models cover framed text, PCM samples, BER, acquisition, pulse shaping and channel impairments.
+## Configurable hardware — Rev A
 
-## Start here
-
-| Goal | Open |
+| Area | Design |
 |---|---|
-| Understand the signal chain and assumptions | [Methodology](docs/methodology.md) |
-| Explore BER, interference and acquisition results | [Simulation results](docs/results.md) |
-| Run the project on Windows | [Getting started](docs/getting-started.md) |
-| Explore the circuit and laboratory measurements | [Hardware](hardware/README.md) |
-| Check the original report's corrections | [Technical errata](docs/errata.md) |
-| Understand the source design and my contribution | [Attribution](docs/attribution.md) |
-| Read the circuit's source article | [QEX, December 1986, pp. 5–9](docs/QEX_1986_12.pdf) |
-| Compare hardware and software features | [Implementation overview](docs/implementation-matrix.md) |
+| Data | User bits, text, hexadecimal payloads, PRBS and repeating patterns |
+| Spreading | Selectable LFSR taps, seed, code phase and spreading length; uploaded sequences |
+| Modulation | BPSK, QPSK, OOK and continuous-phase 2-FSK in the firmware specification |
+| Analogue | Buffered TX I/Q, filtered and protected RX I/Q, four labelled SMA ports |
+| Control | USB-C, reset/mode/user buttons, status LEDs and test points |
+| Development | SWD/SWO programming, SPI/UART expansion, chip/data/PN/frame signals |
+| PCB | 110 × 80 mm, four copper layers, routed nets, ground planes and M3 mounting holes |
+
+Rev A is the schematic and PCB design stage; firmware and board bring-up are next. [Explore the hardware design](hardware/configurable/README.md), [open the schematic](hardware/configurable/renders/schematic.svg), or inspect the [PCB files](hardware/configurable/dsss-configurable.kicad_pcb).
+
+## Explore the project
+
+| Topic | Open |
+|---|---|
+| PCB architecture, BOM and renders | [Configurable hardware](hardware/configurable/README.md) |
+| Signal modes and USB commands | [Control interface](hardware/configurable/control-interface.md) |
+| Original bench build and captures | [Laboratory implementation](hardware/README.md) |
+| BER, interference and synchronization | [Simulation results](docs/results.md) |
+| Signal-chain conventions and parameters | [Methodology](docs/methodology.md) |
+| Python, MATLAB and Octave setup | [Getting started](docs/getting-started.md) |
 
 ## Run Python
 
@@ -73,10 +83,9 @@ At equal information-bit energy, DSSS and ordinary coherent BPSK have the same t
 
 The simulation uses 60,000 bits per AWGN point and 30,000 bits per interference point. Source CSVs include error counts and confidence intervals; seeds and model settings are documented in [methodology](docs/methodology.md).
 
+
 ## Credits
 
-Hardware implementation and laboratory report: **Mohamed Abuain**, supervised by Prof. Tammam Benmusa.
-
-Circuit reference: André Kesteloot, N4ICK, “Experimenting With Direct-Sequence Spread Spectrum,” *QEX*, December 1986, pp. 5–9. [Read the issue](docs/QEX_1986_12.pdf) or see the [design notes](docs/attribution.md).
+Project by **Mohamed Abuain**. The university bench implementation was supervised by Prof. Tammam Benmusa. Its circuit reference and source article are recorded in the [design references](docs/attribution.md).
 
 [Software licence](LICENSE.md) · [Changelog](CHANGELOG.md) · [Roadmap](docs/roadmap.md)

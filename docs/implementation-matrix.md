@@ -23,3 +23,7 @@
 | Routed PCB, ERC, DRC, board bring-up | Not completed | Not applicable | Not applicable |
 
 The MATLAB implementation is tested in GNU Octave and native MathWorks MATLAB. Hardware captures are linked from the [hardware page](../hardware/README.md); numerical experiments are described in [simulation results](results.md).
+
+## Configurable Rev A board
+
+The [Rev A hardware](../hardware/configurable/README.md) adds an STM32G474, USB control, buffered DAC I/Q outputs, protected ADC inputs, debugging and expansion connectors. Its [control specification](../hardware/configurable/control-interface.md) defines programmable payloads, PN taps/seed/phase and BPSK/QPSK/OOK/2-FSK modes. The schematic and routed PCB are included; these controls belong to the planned firmware implementation.

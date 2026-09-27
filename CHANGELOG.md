@@ -1,5 +1,12 @@
 # Changelog
 
+## Rev A hardware design — 27 September 2026
+
+- Added a connected STM32G474 schematic and four-layer PCB for configurable I/Q experiments.
+- Added USB-C, dual transmit/receive channels, analogue filtering and protection, SWD, expansion headers and test points.
+- Added the BOM, pin map, PCB renders and configurable payload/PN/modulation interface specification.
+- Updated the project overview to lead with the Rev A architecture.
+
 ## Documentation update — 27 September 2026
 
 - Reworked the README and supporting pages around the circuit, laboratory captures and simulation results.

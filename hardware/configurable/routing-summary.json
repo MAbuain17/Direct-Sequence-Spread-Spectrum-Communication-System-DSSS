@@ -1,0 +1,11 @@
+{
+  "routed_connections": 118,
+  "pending_connections": [],
+  "track_segments": 798,
+  "ground_planes": [
+    "F.Cu",
+    "In1.Cu",
+    "B.Cu"
+  ],
+  "vias": 151
+}
