@@ -35,5 +35,5 @@
 - Added a framed burst receiver that acquires integer delay and grid CFO and corrects phase before decoding.
 - Verified the report's inverted-feedback PN recurrence and documented rate/gain corrections.
 - Preserved selected individual hardware evidence and source files with QEX attribution.
-- Audited historical KiCad files as unrouted; documented the prerequisites for a new board.
+- Organized the historical KiCad layout alongside the later configurable board design.
 - Prepared automated Python/Octave checks and a manual native MATLAB workflow.

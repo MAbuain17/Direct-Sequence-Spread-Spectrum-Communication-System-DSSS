@@ -13,10 +13,10 @@ The transmitter and receiver use PN generators, XOR spreading, square-carrier BP
 | [DSSS_MAbuain.ms14](original/DSSS_MAbuain.ms14) | Main Multisim 14 project |
 | [GOLD1.ms14](original/GOLD1.ms14) | Additional Multisim project |
 | [MC1496_split_Gilbert_Cell_Test.asc](original/MC1496_split_Gilbert_Cell_Test.asc) | LTspice balanced-demodulator test schematic |
-| `original/dsss.kicad_*` | KiCad component placement study; routing is pending |
+| `original/dsss.kicad_*` | Original KiCad layout concept |
 | [Laboratory report](../docs/original-report.pdf) | Circuit description, measurements and discussion |
 
-The [PCB review](audit/pcb-review.md) records connectivity counts and the next design steps. [Technical notes](../docs/errata.md) clarify the report's rate and bandwidth calculations.
+The [Rev A PCB package](configurable/README.md) contains the programmable baseband design, routed board and renders. [Engineering notes](../docs/errata.md) explain the original clock and spreading conventions.
 
 ## Laboratory captures
 

@@ -76,6 +76,6 @@ All paths above are under `results/`. Zero observed errors are reported with a f
 
 ## Validation status
 
-The Python unit suite has 17 passing tests. It covers PN period/table, autocorrelation, energy, noiseless recovery, theoretical BER, CRC, acquisition, channel alignment, interference power, repetition normalization, impairment identities, confidence intervals, invalid inputs, PSD power, RRC recovery and burst decoding. The same Python checks and a GNU Octave execution of `test_dsss`, `run_experiments` and `advanced_demo` passed in GitHub Actions on 21 September 2026; both jobs produced downloadable result artifacts.
+The Python unit suite has 22 passing tests. It covers PN period/table, autocorrelation, energy, noiseless recovery, theoretical BER, CRC, acquisition, channel alignment, interference power, repetition normalization, impairment identities, confidence intervals, invalid inputs, PSD power, RRC recovery, burst decoding and CDMA code/receiver behavior. Python and GNU Octave also run in the [validation workflow](../.github/workflows/validate.yml).
 
 GNU Octave and native MathWorks MATLAB have both validated the MATLAB-compatible implementation, including the shared deterministic vectors. The first native run used MATLAB build `2026.1.999`, completed all assertions and experiment runners, and uploaded the generated results as a GitHub Actions artifact.

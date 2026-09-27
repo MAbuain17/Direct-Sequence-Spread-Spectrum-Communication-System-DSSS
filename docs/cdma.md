@@ -34,7 +34,7 @@ The example generates [`cdma_near_far.csv`](../results/cdma_near_far.csv) and th
 
 ![Four-user near–far receiver comparison](../results/figures/cdma_near_far.png)
 
-Aligned Walsh signatures maintain zero pairwise correlation in this model, so matched filtering separates the users. A chip-phase change breaks that orthogonality. PN shifts have low nonzero correlation; strong interfering users can therefore bias the matched-filter decision. The decorrelator removes known signature cross-talk, while MMSE trades some residual interference for lower noise amplification. The CSV gives exact error counts for judging differences near the experiment's finite resolution.
+Aligned Walsh signatures maintain zero pairwise correlation in this model, so matched filtering separates the users. A chip-phase change breaks that orthogonality. PN shifts have low nonzero correlation; strong interfering users can therefore bias the matched-filter decision. The decorrelator removes known signature cross-talk, while MMSE uses the configured power and noise level. The CSV gives exact error counts; zero-error points use a half-count floor only for the logarithmic figure.
 
 ## Explore the channel
 
